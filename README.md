@@ -1,6 +1,10 @@
 # BulletDrop
 
 ## Instant Javascript file dropper.
+
+Inspired by John Hammond in this particular video:
+* https://youtu.be/KTxsBW9SkOU
+
 ## FOR EDUCATIONAL PURPOSE ONLY.
 
 ### Usage
